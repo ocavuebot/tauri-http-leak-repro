@@ -1,0 +1,81 @@
+{
+  "config": {
+    "client": "plugin",
+    "idleMs": 8000,
+    "keepAliveTimeout": 5000,
+    "mode": "read",
+    "n": 30,
+    "name": "https-plugin-read",
+    "out": "/private/tmp/tauri-http-leak-repro/results/https-plugin-read.json",
+    "port": 55968,
+    "reload": false,
+    "statsPort": 55969,
+    "ulimit": null,
+    "url": "https://cdn.jsdelivr.net/npm/react@18.3.1/package.json",
+    "warmupUrl": "https://cdn.jsdelivr.net/npm/react@18.3.1/package.json"
+  },
+  "loop": {
+    "errors": {},
+    "ok": 30,
+    "perRequestMs": {
+      "max": 217,
+      "mean": 123.367,
+      "p50": 128,
+      "p90": 201,
+      "p99": 217
+    },
+    "totalMs": 3701
+  },
+  "snapshots": [
+    {
+      "at": 247,
+      "clientSockets": {},
+      "fds": 62,
+      "ipcCallbacks": 0,
+      "label": "before",
+      "resources": {},
+      "rssKb": 107248,
+      "server": {
+        "accepted": 0,
+        "maxOpen": 0,
+        "open": 0,
+        "requests": 0,
+        "reused": 0
+      }
+    },
+    {
+      "at": 4028,
+      "clientSockets": {},
+      "fds": 62,
+      "ipcCallbacks": 0,
+      "label": "end",
+      "resources": {},
+      "rssKb": 107776,
+      "server": {
+        "accepted": 0,
+        "maxOpen": 0,
+        "open": 0,
+        "requests": 0,
+        "reused": 0
+      }
+    },
+    {
+      "at": 16659,
+      "clientSockets": {},
+      "collectedResponses": 0,
+      "fds": 62,
+      "ipcCallbacks": 0,
+      "label": "idle",
+      "resources": {},
+      "rssKb": 107296,
+      "server": {
+        "accepted": 0,
+        "maxOpen": 0,
+        "open": 0,
+        "requests": 0,
+        "reused": 0
+      }
+    }
+  ],
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko)"
+}

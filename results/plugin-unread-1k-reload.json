@@ -1,0 +1,106 @@
+{
+  "config": {
+    "client": "plugin",
+    "idleMs": 8000,
+    "keepAliveTimeout": 5000,
+    "mode": "unread",
+    "n": 300,
+    "name": "plugin-unread-1k-reload",
+    "out": "/private/tmp/tauri-http-leak-repro/results/plugin-unread-1k-reload.json",
+    "port": 51150,
+    "reload": true,
+    "statsPort": 51151,
+    "ulimit": null,
+    "url": "http://127.0.0.1:51150/body?size=1024"
+  },
+  "loop": {
+    "errors": {},
+    "ok": 300,
+    "perRequestMs": {
+      "max": 2,
+      "mean": 0.79,
+      "p50": 1,
+      "p90": 1,
+      "p99": 1
+    },
+    "totalMs": 237
+  },
+  "snapshots": [
+    {
+      "at": 143,
+      "clientSockets": {
+        "com.apple.WebKit.Networking": 1
+      },
+      "fds": 59,
+      "ipcCallbacks": 0,
+      "label": "before",
+      "resources": {},
+      "rssKb": 105568,
+      "server": {
+        "accepted": 2,
+        "maxOpen": 2,
+        "open": 1,
+        "requests": 2,
+        "reused": 0
+      }
+    },
+    {
+      "at": 464,
+      "clientSockets": {
+        "com.apple.WebKit.Networking": 1
+      },
+      "fds": 59,
+      "ipcCallbacks": 0,
+      "label": "end",
+      "resources": {
+        "ReqwestResponse": 300
+      },
+      "rssKb": 109424,
+      "server": {
+        "accepted": 302,
+        "maxOpen": 2,
+        "open": 1,
+        "requests": 302,
+        "reused": 0
+      }
+    },
+    {
+      "at": 12055,
+      "clientSockets": {},
+      "collectedResponses": 0,
+      "fds": 59,
+      "ipcCallbacks": 0,
+      "label": "idle",
+      "resources": {
+        "ReqwestResponse": 300
+      },
+      "rssKb": 109088,
+      "server": {
+        "accepted": 302,
+        "maxOpen": 2,
+        "open": 0,
+        "requests": 302,
+        "reused": 0
+      }
+    },
+    {
+      "at": 1037,
+      "clientSockets": {},
+      "fds": 59,
+      "ipcCallbacks": 0,
+      "label": "after-reload",
+      "resources": {
+        "ReqwestResponse": 300
+      },
+      "rssKb": 109136,
+      "server": {
+        "accepted": 302,
+        "maxOpen": 2,
+        "open": 0,
+        "requests": 302,
+        "reused": 0
+      }
+    }
+  ],
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko)"
+}

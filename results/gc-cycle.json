@@ -1,0 +1,43 @@
+{
+  "config": {
+    "client": "gc-bisect",
+    "idleMs": 8000,
+    "keepAliveTimeout": 5000,
+    "mode": "unread",
+    "n": 300,
+    "name": "gc-cycle",
+    "only": "cycle",
+    "out": "/private/tmp/tauri-http-leak-repro/results/gc-cycle.json",
+    "port": 50508,
+    "reload": false,
+    "statsPort": 50509,
+    "ulimit": null,
+    "url": "http://127.0.0.1:50508/body?size=1024"
+  },
+  "gc": [
+    {
+      "cycle-bind/read": 0,
+      "cycle-bind/unread": 0,
+      "cycle-direct/read": 0,
+      "cycle-direct/unread": 0,
+      "cycle-property/read": 299,
+      "cycle-property/unread": 300
+    },
+    {
+      "cycle-bind/read": 0,
+      "cycle-bind/unread": 0,
+      "cycle-direct/read": 0,
+      "cycle-direct/unread": 0,
+      "cycle-property/read": 299,
+      "cycle-property/unread": 300
+    },
+    {
+      "cycle-bind/read": 0,
+      "cycle-bind/unread": 0,
+      "cycle-direct/read": 0,
+      "cycle-direct/unread": 0,
+      "cycle-property/read": 299,
+      "cycle-property/unread": 300
+    }
+  ]
+}

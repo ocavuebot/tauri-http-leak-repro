@@ -1,0 +1,76 @@
+{
+  "config": {
+    "client": "plugin",
+    "idleMs": 8000,
+    "keepAliveTimeout": 5000,
+    "mode": "unread",
+    "n": 400,
+    "name": "fd256-plugin-unread-256k",
+    "out": "/private/tmp/tauri-http-leak-repro/results/fd256-plugin-unread-256k.json",
+    "port": 54331,
+    "reload": false,
+    "statsPort": 54332,
+    "ulimit": 256,
+    "url": "http://127.0.0.1:54331/body?size=262144"
+  },
+  "loop": {
+    "errors": {
+      "error sending request for url (http://127.0.0.1:54331/body?size=262144)": 156
+    },
+    "ok": 244,
+    "perRequestMs": {
+      "max": 2,
+      "mean": 0.723,
+      "p50": 1,
+      "p90": 1,
+      "p99": 2
+    },
+    "totalMs": 289
+  },
+  "snapshots": [
+    {
+      "at": 95,
+      "clientSockets": {
+        "com.apple.WebKit.Networking": 1
+      },
+      "fds": 59,
+      "ipcCallbacks": 0,
+      "label": "before",
+      "resources": {},
+      "rssKb": 105744,
+      "server": {
+        "accepted": 2,
+        "maxOpen": 2,
+        "open": 1,
+        "requests": 2,
+        "reused": 0
+      }
+    },
+    {
+      "at": 386,
+      "clientSockets": {},
+      "fds": 0,
+      "ipcCallbacks": 0,
+      "label": "end",
+      "resources": {
+        "ReqwestResponse": 244
+      },
+      "rssKb": 0,
+      "server": null
+    },
+    {
+      "at": 12471,
+      "clientSockets": {},
+      "collectedResponses": 0,
+      "fds": 0,
+      "ipcCallbacks": 0,
+      "label": "idle",
+      "resources": {
+        "ReqwestResponse": 244
+      },
+      "rssKb": 0,
+      "server": null
+    }
+  ],
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko)"
+}

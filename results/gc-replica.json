@@ -1,0 +1,61 @@
+{
+  "config": {
+    "client": "gc-bisect",
+    "idleMs": 8000,
+    "keepAliveTimeout": 5000,
+    "mode": "unread",
+    "n": 300,
+    "name": "gc-replica",
+    "only": "replica",
+    "out": "/private/tmp/tauri-http-leak-repro/results/gc-replica.json",
+    "port": 53231,
+    "reload": false,
+    "statsPort": 53232,
+    "ulimit": null,
+    "url": "http://127.0.0.1:53231/body?size=1024"
+  },
+  "gc": [
+    {
+      "replica-full/read": 300,
+      "replica-full/unread": 300,
+      "replica-no-cancel/read": 300,
+      "replica-no-cancel/unread": 300,
+      "replica-no-ipc-pull/read": 300,
+      "replica-no-ipc-pull/unread": 300,
+      "replica-no-patch/read": 300,
+      "replica-no-patch/unread": 300,
+      "replica-no-prelude/read": 299,
+      "replica-no-prelude/unread": 300,
+      "replica-no-start/read": 300,
+      "replica-no-start/unread": 300
+    },
+    {
+      "replica-full/read": 300,
+      "replica-full/unread": 300,
+      "replica-no-cancel/read": 300,
+      "replica-no-cancel/unread": 300,
+      "replica-no-ipc-pull/read": 300,
+      "replica-no-ipc-pull/unread": 300,
+      "replica-no-patch/read": 300,
+      "replica-no-patch/unread": 300,
+      "replica-no-prelude/read": 299,
+      "replica-no-prelude/unread": 300,
+      "replica-no-start/read": 300,
+      "replica-no-start/unread": 300
+    },
+    {
+      "replica-full/read": 300,
+      "replica-full/unread": 300,
+      "replica-no-cancel/read": 300,
+      "replica-no-cancel/unread": 300,
+      "replica-no-ipc-pull/read": 300,
+      "replica-no-ipc-pull/unread": 300,
+      "replica-no-patch/read": 300,
+      "replica-no-patch/unread": 300,
+      "replica-no-prelude/read": 299,
+      "replica-no-prelude/unread": 300,
+      "replica-no-start/read": 300,
+      "replica-no-start/unread": 300
+    }
+  ]
+}

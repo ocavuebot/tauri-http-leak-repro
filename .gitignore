@@ -1,5 +1,4 @@
 target/
 node_modules/
-results/
 src-tauri/gen/
 patched/tauri-plugin-http/
