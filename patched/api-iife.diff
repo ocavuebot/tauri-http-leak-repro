@@ -1,0 +1,33 @@
+--- api-iife.js (tauri-plugin-http 2.8.3, split at ";")
++++ api-iife.js (patched)
+@@ -1,6 +1,9 @@
+ if("__TAURI__"in window){var __TAURI_PLUGIN_HTTP__=function(e,t){"use strict"
+-const r="Request cancelled"
+-return e.fetch=async function(e,n){const a=n?.signal
++const r="Request cancelled",__drop=new FinalizationRegistry(e=>{e()})
++function __patch(A,b,g){Object.defineProperty(A,"url",{value:b,writable:!1}),Object.defineProperty(A,"headers",{value:new Headers(g),writable:!1})
++const P=A.clone.bind(A)
++return Object.defineProperty(A,"clone",{value:()=>{const e=P()
++return Object.defineProperty(e,"url",{value:b,writable:!1}),Object.defineProperty(e,"headers",{value:new Headers(g),writable:!1}),e}}),A}return e.fetch=async function(e,n){const a=n?.signal
+ if(a?.aborted)throw new Error(r)
+ const o=n?.maxRedirections,i=n?.connectTimeout,s=n?.proxy,c=n?.danger
+ n&&(delete n.maxRedirections,delete n.connectTimeout,delete n.proxy,delete n.danger)
+@@ -12,12 +15,11 @@
+ if(a?.aborted)throw f(),new Error(r)
+ a?.addEventListener("abort",()=>{f()})
+ const{status:y,statusText:p,url:b,headers:g,rid:v}=await t.invoke("plugin:http|fetch_send",{rid:w})
+-let T=!1
+-const m=()=>T?Promise.resolve():(T=!0,t.invoke("plugin:http|fetch_cancel_body",{rid:v}).catch(()=>{})),R=[101,103,204,205,304].includes(y)?null:new ReadableStream({start:e=>{a?.addEventListener("abort",()=>{e.error(r),m()})},pull:e=>(async e=>{let r
++let S,T=!1
++const m=()=>T?Promise.resolve():(T=!0,t.invoke("plugin:http|fetch_cancel_body",{rid:v}).catch(()=>{})),R=[101,103,204,205,304].includes(y)?null:new ReadableStream(S={start:e=>{a?.addEventListener("abort",()=>{e.error(r),m()})},pull:e=>(async e=>{let r
+ try{r=await t.invoke("plugin:http|fetch_read_body",{rid:v})}catch(t){return e.error(t),void m()}const n=new Uint8Array(r),a=n[n.byteLength-1],o=n.slice(0,n.byteLength-1)
+-1!==a?e.enqueue(o):e.close()})(e),cancel:()=>{m()}}),A=new Response(R,{status:y,statusText:p})
+-Object.defineProperty(A,"url",{value:b,writable:!1}),Object.defineProperty(A,"headers",{value:new Headers(g),writable:!1})
+-const P=A.clone.bind(A)
+-return Object.defineProperty(A,"clone",{value:()=>{const e=P()
+-return Object.defineProperty(e,"url",{value:b,writable:!1}),Object.defineProperty(e,"headers",{value:new Headers(g),writable:!1}),e}}),A},e}({},window.__TAURI__.core)
++1!==a?e.enqueue(o):e.close()})(e),cancel:()=>{m()}})
++R===null?m():__drop.register(S,m)
++const A=new Response(R,{status:y,statusText:p})
++return __patch(A,b,g)},e}({},window.__TAURI__.core)
+ Object.defineProperty(window.__TAURI__,"http",{value:__TAURI_PLUGIN_HTTP__})}

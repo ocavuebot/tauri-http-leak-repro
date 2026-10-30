@@ -1,0 +1,84 @@
+{
+  "config": {
+    "client": "native",
+    "idleMs": 8000,
+    "keepAliveTimeout": 5000,
+    "mode": "read",
+    "n": 300,
+    "name": "native-read-1k",
+    "out": "/private/tmp/tauri-http-leak-repro/results-perf1/native-read-1k.json",
+    "port": 64134,
+    "reload": false,
+    "statsPort": 64135,
+    "ulimit": null,
+    "url": "http://127.0.0.1:64134/body?size=1024"
+  },
+  "loop": {
+    "errors": {},
+    "ok": 300,
+    "perRequestMs": {
+      "max": 5,
+      "mean": 2.617,
+      "p50": 3,
+      "p90": 3,
+      "p99": 3
+    },
+    "totalMs": 785
+  },
+  "snapshots": [
+    {
+      "at": 167,
+      "clientSockets": {
+        "com.apple.WebKit.Networking": 1
+      },
+      "fds": 59,
+      "ipcCallbacks": 0,
+      "label": "before",
+      "resources": {},
+      "rssKb": 105520,
+      "server": {
+        "accepted": 2,
+        "maxOpen": 2,
+        "open": 1,
+        "requests": 2,
+        "reused": 0
+      }
+    },
+    {
+      "at": 1038,
+      "clientSockets": {
+        "com.apple.WebKit.Networking": 1
+      },
+      "fds": 59,
+      "ipcCallbacks": 0,
+      "label": "end",
+      "resources": {},
+      "rssKb": 105712,
+      "server": {
+        "accepted": 2,
+        "maxOpen": 2,
+        "open": 1,
+        "requests": 302,
+        "reused": 300
+      }
+    },
+    {
+      "at": 13006,
+      "clientSockets": {},
+      "collectedResponses": 300,
+      "fds": 59,
+      "ipcCallbacks": 0,
+      "label": "idle",
+      "resources": {},
+      "rssKb": 105264,
+      "server": {
+        "accepted": 2,
+        "maxOpen": 2,
+        "open": 0,
+        "requests": 302,
+        "reused": 300
+      }
+    }
+  ],
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko)"
+}
